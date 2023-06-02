@@ -22,54 +22,25 @@ namespace Ali_Diplom
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static User user;
         public MainWindow()
         {
             InitializeComponent();
-            AppConnect.ali_DiplomEntities = new AppData.Ali_DiplomEntities();
         }
 
-        
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (LoginUserTextBox.Text == "" && (PasswordPasswordBox.Password == ""))
+            var qwe = AppConnect.ali.User.Where(i => i.Login == UsernameBox.Text && i.Password == PasswordBox.Password).FirstOrDefault();
+            if(qwe != null)
             {
-                MessageBox.Show("Поля пустые", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                My_AppMain my_AppMain = new My_AppMain();
+                MessageBox.Show("Добро пожаловать");
+                my_AppMain.Show();
+                Close();
             }
             else
             {
-                AuthPols();
-            }
-        }
-        private void AuthPols()
-        {
-            try
-            {
-                // Переменная, которая содержит в себе информацию о пользователе
-                var logInUser = AppConnect.ali_DiplomEntities.User.FirstOrDefault(DataUser =>
-                        DataUser.Login == LoginUserTextBox.Text && (DataUser.Password == PasswordPasswordBox.Password));
-
-                // Если данные которые ввел пользователь, существуют в базе данных
-                if (logInUser != null)
-                {
-                    AppConnect.IDUser_DBC = logInUser.ID;
-
-                    My_AppMain my_AppMain = new My_AppMain();
-                    my_AppMain.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Проверьте личные данные!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-
-
-                MessageBox.Show(
-            ex.Message.ToString(), "Неизвестная ошибка",
-            MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                MessageBox.Show("Проверье введенные данные");
             }
         }
     }

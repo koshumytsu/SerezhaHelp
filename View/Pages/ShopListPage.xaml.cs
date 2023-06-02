@@ -31,7 +31,7 @@ namespace Ali_Diplom.View.Pages
             var catal = (Product)ShopsList.SelectedItem;
             if (catal != null)
             {
-                var hexc = AppConnect.ali_DiplomEntities.Products.Where(IDProd => IDProd.Name_Product == IDProd.Name_Product).ToList();
+                var hexc = AppConnect.ali.Products.Where(IDProd => IDProd.Name_Product == IDProd.Name_Product).ToList();
                 ShopsList.ItemsSource = hexc;
             }
         }

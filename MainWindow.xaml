@@ -5,23 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ali_Diplom"
         mc:Ignorable="d"
-       Title="Login" Height="250" Width="450"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="10">
+       Title="Login" Height="400" Width="450"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="TitleTextStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Foreground" Value="#333" />
+        </Style>
+
+        <Style x:Key="InputTextStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="MinWidth" Value="200" />
+            <Setter Property="Margin" Value="0,0,0,16" />
+            <Setter Property="BorderBrush" Value="#999" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style x:Key="PasswordBoxStyle" TargetType="{x:Type PasswordBox}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="MinWidth" Value="200" />
+            <Setter Property="Margin" Value="0,0,0,16" />
+            <Setter Property="BorderBrush" Value="#999" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="8" />
+            <Setter Property="MinWidth" Value="120" />
+            <Setter Property="Margin" Value="0,0,0,16" />
+            <Setter Property="Background" Value="#333" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="2.4*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Введите логин:" Margin="5" Grid.Row="0" Grid.Column="0"/>
-        <TextBox x:Name="LoginUserTextBox" Margin="5" Grid.Row="0" Grid.Column="1"/>
-        <Label Content="Введите пароль:" Margin="5" Grid.Row="1" Grid.Column="0"/>
-        <PasswordBox x:Name="PasswordPasswordBox" Margin="5" Grid.Row="1" Grid.Column="1"/>
-        <Button Content="Войти" Margin="5" Name="btnLogin" Grid.Row="3" Grid.Column="1" Click="btnLogin_Click"/>
+        <TextBlock HorizontalAlignment="Center" Style="{StaticResource TitleTextStyle}" Text="Авторизация" FontSize="24" FontStyle="Italic" TextDecorations="{x:Null}" FontWeight="Bold" />
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Имя пользователя" FontFamily="Wide Latin" FontSize="18" FontStyle="Italic" TextDecorations="{x:Null}" />
+            <TextBox Style="{StaticResource InputTextStyle}" x:Name="UsernameBox" />
+            <TextBlock Text="Пароль" FontSize="18" FontStyle="Italic" />
+            <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="PasswordBox" />
+            <Button Style="{StaticResource ButtonStyle}" Content="Войти" Click="Button_Click" />
+        </StackPanel>
+        <Border CornerRadius="8,0,8,0" Width="280" Height="260" VerticalAlignment="Center" Grid.Row="2">
+            <Border.Background>
+                <ImageBrush Stretch="Fill" ImageSource="/Image/photo_5462950559880431743_x.jpg"/>
+            </Border.Background>
+        </Border>
     </Grid>
 </Window>

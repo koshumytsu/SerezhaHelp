@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ali_Diplom.AppData
 {
-    internal class AppConnect
+    public class AppConnect
     {
-        public static Ali_DiplomEntities ali_DiplomEntities;
-        public static int IDUser_DBC;
+        public static Ali_DiplomEntities ali = new Ali_DiplomEntities();
     }
 }

@@ -21,7 +21,6 @@ namespace Ali_Diplom
     /// </summary>
     public partial class ProfilePage : Page
     {
-        private NavigationHelper _navigationHelper;
         public ProfilePage()
         {
             InitializeComponent();
@@ -35,13 +34,7 @@ namespace Ali_Diplom
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
-            {
-                var hex = AppConnect.ali_DiplomEntities.User.Find(AppConnect.IDUser_DBC);
-                IDTB.Text = hex.ID.ToString();
-                LogTB.Text = hex.Login.ToString();
-                Full_NameTB.Text = hex.Full_Name.ToString();
-            }
+            
         }
     }
 }

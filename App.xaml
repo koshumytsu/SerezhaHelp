@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Ali_Diplom"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="15,0,15,0" />
+            <Setter Property="Height" Value="50" />
+        </Style>
     </Application.Resources>
 </Application>
